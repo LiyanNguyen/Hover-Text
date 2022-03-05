@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+:root {
+	font-size: 62.5%;
+	font-family: 'Poppins', sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* for the sake of demonstration make the body a flexbox */
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: #252839;
+}
+
+menu {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+li {
+	list-style: none;
+	position: relative;
+}
+
+a {
+	position: relative;
+	font-size: 5rem;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 1.6;
+	letter-spacing: .2rem;
+	text-transform: uppercase;
+	color: transparent;
+	-webkit-text-stroke: .1rem rgba(255, 255, 255, 0.5);
+}
+
+a::before {
+	content: attr(data-text); /*bind the data-text attribute value into this*/
+	position: absolute;
+	color: var(--custom-color);
+	width: 0%;
+	overflow: hidden;
+	transition: 1s;
+	border-right: 1rem solid var(--custom-color);
+	-webkit-text-stroke: .1rem var(--custom-color);
+}
+
+a:hover::before {
+	width: 100%;
+	filter: drop-shadow(0 0 2.5rem var(--custom-color));
+}
